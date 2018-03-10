@@ -14,7 +14,7 @@ namespace GST_Impl.Controllers
 {
     [Authorize]
     public class AccountController : Controller
-    {
+    {//123456 
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
