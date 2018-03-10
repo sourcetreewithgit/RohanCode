@@ -3703,15 +3703,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ROHAN\\.nuget\\packages\\": {}
+    "C:\\Users\\PANKAJ\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\GIT_REPO_ROHAN\\RohanCode\\Gst_Impl.Infrastructure\\Gst_Impl.Infrastructure.csproj",
+      "projectUniqueName": "D:\\PROJECTS\\GST\\Gst_Impl.Infrastructure\\Gst_Impl.Infrastructure.csproj",
       "projectName": "Gst_Impl.Infrastructure",
-      "projectPath": "F:\\GIT_REPO_ROHAN\\RohanCode\\Gst_Impl.Infrastructure\\Gst_Impl.Infrastructure.csproj",
-      "outputPath": "F:\\GIT_REPO_ROHAN\\RohanCode\\Gst_Impl.Infrastructure\\obj\\",
+      "projectPath": "D:\\PROJECTS\\GST\\Gst_Impl.Infrastructure\\Gst_Impl.Infrastructure.csproj",
+      "outputPath": "D:\\PROJECTS\\GST\\Gst_Impl.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netstandard1.4"
