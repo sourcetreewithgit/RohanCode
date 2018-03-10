@@ -35,7 +35,7 @@ namespace GST_Impl.Models
         public Nullable<System.DateTime> ChallanDate { get; set; }
         public string VendorCode { get; set; }
         public string E_Way_Bill_No { get; set; }
-        public string PlaceOfSupply { get; set; }
+        public Nullable<int> PlaceOfSupply { get; set; }
         public string ReverseCharge { get; set; }
         public string InsurancePolicy { get; set; }
         public string PolicyNo { get; set; }
@@ -54,7 +54,6 @@ namespace GST_Impl.Models
         public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDt { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
-        public string Acc { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual mst_PurchaseOrder mst_PurchaseOrder { get; set; }

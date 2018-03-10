@@ -3708,10 +3708,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Anand_work\\03_03_2018_v1\\WorkingSprint\\Gst_Impl.Domain\\Gst_Impl.Domain.csproj",
+      "projectUniqueName": "F:\\GIT_REPO_ROHAN\\RohanCode\\Gst_Impl.Domain\\Gst_Impl.Domain.csproj",
       "projectName": "Gst_Impl.Domain",
-      "projectPath": "F:\\Anand_work\\03_03_2018_v1\\WorkingSprint\\Gst_Impl.Domain\\Gst_Impl.Domain.csproj",
-      "outputPath": "F:\\Anand_work\\03_03_2018_v1\\WorkingSprint\\Gst_Impl.Domain\\obj\\",
+      "projectPath": "F:\\GIT_REPO_ROHAN\\RohanCode\\Gst_Impl.Domain\\Gst_Impl.Domain.csproj",
+      "outputPath": "F:\\GIT_REPO_ROHAN\\RohanCode\\Gst_Impl.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netstandard1.4"

@@ -32,7 +32,7 @@ namespace GST_Impl.Models
         public Nullable<decimal> IGSTorCGST_Amt { get; set; }
         public Nullable<decimal> SGSTorUGST_Amt { get; set; }
         public Nullable<decimal> OtherTax_Amt { get; set; }
-        public Nullable<decimal> ItemAdvance { get; set; }
+        public Nullable<decimal> Advance { get; set; }
         public Nullable<decimal> ItemTotal { get; set; }
     
         public virtual mst_SalesInvoice mst_SalesInvoice { get; set; }

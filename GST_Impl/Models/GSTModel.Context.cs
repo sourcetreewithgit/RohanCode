@@ -27,11 +27,6 @@ namespace GST_Impl.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
-        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
-        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
-        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<CustomerContact> CustomerContacts { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
@@ -49,10 +44,10 @@ namespace GST_Impl.Models
         public virtual DbSet<ProductsAndService> ProductsAndServices { get; set; }
         public virtual DbSet<PurchaseOrderDetail> PurchaseOrderDetails { get; set; }
         public virtual DbSet<ReceiptDetail> ReceiptDetails { get; set; }
+        public virtual DbSet<SalesInvoiceItem> SalesInvoiceItems { get; set; }
         public virtual DbSet<SubCategory> SubCategories { get; set; }
         public virtual DbSet<VendorContact> VendorContacts { get; set; }
         public virtual DbSet<Vendor> Vendors { get; set; }
-        public virtual DbSet<SalesInvoiceItem> SalesInvoiceItems { get; set; }
     
         public virtual ObjectResult<GetPOByGuid_Result> GetPOByGuid(string guid)
         {

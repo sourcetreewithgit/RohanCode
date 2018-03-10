@@ -204,18 +204,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AspNetRole.cs">
-      <DependentUpon>GSTModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUser.cs">
-      <DependentUpon>GSTModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserClaim.cs">
-      <DependentUpon>GSTModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserLogin.cs">
-      <DependentUpon>GSTModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Category.cs">
       <DependentUpon>GSTModel.tt</DependentUpon>
     </Compile>
@@ -225,9 +213,6 @@
       <DependentUpon>GSTModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CustomerContact.cs">
-      <DependentUpon>GSTModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>GSTModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetPOByGuid_Result.cs">

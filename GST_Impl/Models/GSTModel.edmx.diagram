@@ -4,58 +4,50 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9b5d1141673d45b5b1b61b5845c57e4c" Name="Diagram1" ZoomLevel="84">
-        <EntityTypeShape EntityType="GSTBookModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="GSTBookModel.AspNetRole" Width="1.5" PointX="10.75" PointY="2.5" />
-        <EntityTypeShape EntityType="GSTBookModel.AspNetUserClaim" Width="1.5" PointX="15.25" PointY="1" />
-        <EntityTypeShape EntityType="GSTBookModel.AspNetUserLogin" Width="1.5" PointX="15.25" PointY="3.75" />
-        <EntityTypeShape EntityType="GSTBookModel.AspNetUser" Width="1.5" PointX="13" PointY="1.375" />
-        <EntityTypeShape EntityType="GSTBookModel.Category" Width="1.5" PointX="12.75" PointY="15.375" />
-        <EntityTypeShape EntityType="GSTBookModel.CustomerContact" Width="1.5" PointX="3" PointY="18.875" />
-        <EntityTypeShape EntityType="GSTBookModel.Customer" Width="1.5" PointX="0.75" PointY="9.125" />
-        <EntityTypeShape EntityType="GSTBookModel.HsnHacCode" Width="1.5" PointX="6" PointY="17.5" />
-        <EntityTypeShape EntityType="GSTBookModel.mst_FinancialYear" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="GSTBookModel.mst_OrgInfo" Width="1.5" PointX="8.75" PointY="15.75" />
-        <EntityTypeShape EntityType="GSTBookModel.mst_PaymentTypes" Width="1.5" PointX="8.25" PointY="4.375" />
-        <EntityTypeShape EntityType="GSTBookModel.mst_PurchaseOrder" Width="1.5" PointX="3" PointY="7.875" />
-        <EntityTypeShape EntityType="GSTBookModel.mst_Receipts" Width="1.5" PointX="10.5" PointY="9.375" />
-        <EntityTypeShape EntityType="GSTBookModel.mst_SalesInvoice" Width="1.5" PointX="5.25" PointY="7.625" />
-        <EntityTypeShape EntityType="GSTBookModel.mst_Statuses" Width="1.5" PointX="0.75" PointY="5.875" />
-        <EntityTypeShape EntityType="GSTBookModel.mst_Taxes" Width="1.5" PointX="6" PointY="3.375" />
-        <EntityTypeShape EntityType="GSTBookModel.mst_TaxTypes" Width="1.5" PointX="3.75" PointY="4.25" />
-        <EntityTypeShape EntityType="GSTBookModel.mst_Uom" Width="1.5" PointX="15.75" PointY="6.75" />
-        <EntityTypeShape EntityType="GSTBookModel.ProductsAndService" Width="1.5" PointX="17.25" PointY="16" />
-        <EntityTypeShape EntityType="GSTBookModel.PurchaseOrderDetail" Width="1.5" PointX="8.25" PointY="8.5" />
-        <EntityTypeShape EntityType="GSTBookModel.ReceiptDetail" Width="1.5" PointX="15.75" PointY="9.75" />
-        <EntityTypeShape EntityType="GSTBookModel.SubCategory" Width="1.5" PointX="15" PointY="15.125" />
-        <EntityTypeShape EntityType="GSTBookModel.VendorContact" Width="1.5" PointX="20" PointY="1.75" />
-        <EntityTypeShape EntityType="GSTBookModel.Vendor" Width="1.5" PointX="17.75" PointY="1" />
-        <AssociationConnector Association="GSTBookModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
-        <AssociationConnector Association="GSTBookModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
-        <AssociationConnector Association="GSTBookModel.FK_SubCategory_Category" />
-        <AssociationConnector Association="GSTBookModel.FK_CustomerContacts_Customers" />
-        <AssociationConnector Association="GSTBookModel.FK_mst_PurchaseOrder_Customers" />
-        <AssociationConnector Association="GSTBookModel.FK_mst_Receipts_Customers" />
-        <AssociationConnector Association="GSTBookModel.FK_mst_SalesInvoice_Customers" />
-        <AssociationConnector Association="GSTBookModel.FK_ProductsAndServices_HsnHacCodes" />
-        <AssociationConnector Association="GSTBookModel.FK_PurchaseOrderDetails_HsnHacCodes" />
-        <AssociationConnector Association="GSTBookModel.FK_mst_Receipts_mst_PaymentTypes" />
-        <AssociationConnector Association="GSTBookModel.FK_mst_PurchaseOrder_mst_PurchaseOrder" />
-        <AssociationConnector Association="GSTBookModel.FK_mst_PurchaseOrder_mst_Statuses" />
-        <AssociationConnector Association="GSTBookModel.FK_mst_SalesInvoice_mst_PurchaseOrder" />
-        <AssociationConnector Association="GSTBookModel.FK_PurchaseOrderDetails_mst_PurchaseOrder" />
-        <AssociationConnector Association="GSTBookModel.FK_mst_Receipts_SalesInvoiceItems" />
-        <AssociationConnector Association="GSTBookModel.FK_mst_Taxes_mst_TaxTypes" />
-        <AssociationConnector Association="GSTBookModel.FK_PurchaseOrderDetails_mst_Taxes" />
-        <AssociationConnector Association="GSTBookModel.FK_PurchaseOrderDetails_mst_Taxes1" />
-        <AssociationConnector Association="GSTBookModel.FK_PurchaseOrderDetails_mst_Taxes2" />
-        <AssociationConnector Association="GSTBookModel.FK_ProductsAndServices_SubCategory" />
-        <AssociationConnector Association="GSTBookModel.FK_VendorContacts_Vendors" />
-        <AssociationConnector Association="GSTBookModel.AspNetUserRoles" />
-        <EntityTypeShape EntityType="GSTBookModel.SalesInvoiceItem" Width="1.5" PointX="13.5" PointY="9.625" />
-        <AssociationConnector Association="GSTBookModel.FK_SalesInvoiceItems_mst_SalesInvoice" />
-        <AssociationConnector Association="GSTBookModel.FK_SalesInvoiceItems_PurchaseOrderDetails" />
-        <AssociationConnector Association="GSTBookModel.FK_ReceiptDetails_SalesInvoiceItems" />
+      <Diagram DiagramId="10eea8618d9c490b9b0607cdda02175d" Name="Diagram1">
+        <EntityTypeShape EntityType="GSTBookModel.Category" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.CustomerContact" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.Customer" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.HsnHacCode" Width="1.5" PointX="9" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.mst_FinancialYear" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.mst_OrgInfo" Width="1.5" PointX="5.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.mst_PaymentTypes" Width="1.5" PointX="11.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.mst_PurchaseOrder" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.mst_Receipts" Width="1.5" PointX="13.5" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.mst_SalesInvoice" Width="1.5" PointX="8.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.mst_Statuses" Width="1.5" PointX="3.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.mst_Taxes" Width="1.5" PointX="9" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.mst_TaxTypes" Width="1.5" PointX="6.75" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.mst_Uom" Width="1.5" PointX="2.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.ProductsAndService" Width="1.5" PointX="11.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.PurchaseOrderDetail" Width="1.5" PointX="11.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.ReceiptDetail" Width="1.5" PointX="18.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.SalesInvoiceItem" Width="1.5" PointX="16.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.SubCategory" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.VendorContact" Width="1.5" PointX="16" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSTBookModel.Vendor" Width="1.5" PointX="13.75" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="GSTBookModel.FK_SubCategory_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_CustomerContacts_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_mst_PurchaseOrder_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_mst_Receipts_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_mst_SalesInvoice_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_ProductsAndServices_HsnHacCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_PurchaseOrderDetails_HsnHacCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_mst_Receipts_mst_PaymentTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_mst_PurchaseOrder_mst_PurchaseOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_mst_PurchaseOrder_mst_Statuses" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_mst_SalesInvoice_mst_PurchaseOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_PurchaseOrderDetails_mst_PurchaseOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_mst_Receipts_SalesInvoiceItems" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_SalesInvoiceItems_mst_SalesInvoice" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_mst_Taxes_mst_TaxTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_PurchaseOrderDetails_mst_Taxes" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_PurchaseOrderDetails_mst_Taxes1" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_PurchaseOrderDetails_mst_Taxes2" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_ProductsAndServices_SubCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_SalesInvoiceItems_PurchaseOrderDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_ReceiptDetails_SalesInvoiceItems" ManuallyRouted="false" />
+        <AssociationConnector Association="GSTBookModel.FK_VendorContacts_Vendors" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

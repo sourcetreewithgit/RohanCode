@@ -28,7 +28,6 @@ namespace GST_Impl.Models
         public Nullable<decimal> OtherTax_Amt { get; set; }
         public Nullable<decimal> Advance { get; set; }
         public Nullable<decimal> ItemTotal { get; set; }
-        public Nullable<int> PoDetailId { get; set; }
     
         public virtual SalesInvoiceItem SalesInvoiceItem { get; set; }
     }
