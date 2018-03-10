@@ -1,0 +1,179 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper" ng-controller="ClientController" ng-init="" cg-busy="{promise:myPromise,message:'Loading Your Data'}">
+    <div class="content-header">
+        <h4>Clients<a class="btn btn-info btn-sm pull-right" ng-click="Init();"><i class="fa fa-plus" aria-hidden="true"></i> New Client</a></h4>
+    </div>
+    <div class="content">
+        <div class="box box-success">
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table ng-table="CustomerListTable" class="table table-bordered table-hover table-condensed">
+                        <tbody>
+                            <tr ng-repeat="row in $data">
+                                <td data-title="'Company No'" filter="{ CompanyIdNo: 'text'}" sortable="'PONO'">{{row.CompanyIdNo}}</td>
+                                <td data-title="'Company Name'" filter="{ CompanyName: 'text'}" sortable="'CompanyName'">{{row.CompanyName}}</td>                               
+                                <td data-title="'ACTION'">
+                                    <div class="btn-group btn-xs">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                        </button>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li><a href="#" ng-click="Edit(row.GUID)">EDIT</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="box-footer">
+
+            </div>
+        </div>
+
+        <div class="box box-primary" ng-init="Init();">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Company Name</label>
+                            <input type="text" class="form-control" ng-model="customer.CompanyName"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Client Name</label>
+                            <input type="text" class="form-control" ng-model="customer.Name"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Company Id</label>
+                            <input type="text" class="form-control" ng-model="customer.CompanyIdNo"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>GSTN</label>
+                            <input type="text" class="form-control" ng-model="customer.GSTN"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Address</label>
+                            <textarea class="form-control" ng-model="customer.LocAddress"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Country</label>
+                            <input type="text" class="form-control input-sm" ng-model="customer.CountryId"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>State</label>
+                            <input type="text" class="form-control input-sm" ng-model="customer.StateId"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" class="form-control input-sm" ng-model="customer.CityId"/>
+                        </div>
+                    </div>                
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Pincode</label>
+                            <input type="text" class="form-control input-sm" ng-model="customer.Pincode" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Telephone</label>
+                            <input type="text" class="form-control input-sm" ng-model="customer.Telephone" />
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button class="btn btn-success btn-xs" ng-click="NewRow()">ADD NEW ITEM</button>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-condensed table-hover">
+                                <thead>
+                                    <tr>
+                                        <td>Sr.No.</td>
+                                        <td>Contact Person Name</td>
+                                        <td>Contact No.</td>
+                                        <td>Email</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="row in customer.CustomerContacts">
+                                        <td>{{$index + 1}}</td>
+                                        <td>
+                                            <input type="text" class="form-control input-sm" ng-model="row.ContactName"/>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control input-sm" ng-model="row.ContactNo" />
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control input-sm" ng-model="row.EmailId" />
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-danger btn-xs" ng-click="DeleteRow()">Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button class="btn btn-success btn-xs" ng-click="NewRow()">ADD NEW ITEM</button>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Remarks</label>
+                            <textarea class="form-control input-sm" ng-model="customer.Remarks"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-12">                       
+                        <a class="btn btn-success btn-sm" ng-click="Save()">SUBMIT</a>
+                        <a class="btn btn-default btn-sm" href="/PO/Index">CANCEL</a>
+                    </div>
+                </div>               
+            </div>
+        </div>
+    </div>
+</div>
+

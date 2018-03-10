@@ -1,0 +1,7 @@
+E:\WorkingSprint\Gst_Impl.Domain\bin\Debug\netstandard1.4\Gst_Impl.Domain.deps.json
+E:\WorkingSprint\Gst_Impl.Domain\bin\Debug\netstandard1.4\Gst_Impl.Domain.dll
+E:\WorkingSprint\Gst_Impl.Domain\bin\Debug\netstandard1.4\Gst_Impl.Domain.pdb
+E:\WorkingSprint\Gst_Impl.Domain\obj\Debug\netstandard1.4\Gst_Impl.Domain.csprojResolveAssemblyReference.cache
+E:\WorkingSprint\Gst_Impl.Domain\obj\Debug\netstandard1.4\Gst_Impl.Domain.AssemblyInfo.cs
+E:\WorkingSprint\Gst_Impl.Domain\obj\Debug\netstandard1.4\Gst_Impl.Domain.dll
+E:\WorkingSprint\Gst_Impl.Domain\obj\Debug\netstandard1.4\Gst_Impl.Domain.pdb

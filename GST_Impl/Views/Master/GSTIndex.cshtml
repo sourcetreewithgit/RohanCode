@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "GSTIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper" ng-controller="MasterController" ng-init="GSTInit();" cg-busy="{promise:myPromise,message:'Loading Your Data'}">
+    <div class="content-header">
+        <h4>GST<a class="btn btn-info btn-sm pull-right" ng-click="GSTInit();"><i class="fa fa-plus" aria-hidden="true"></i> New GST</a></h4>
+    </div>
+    <div class="content">
+        <div class="box box-success">
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table ng-table="GSTListTable" class="table table-bordered table-hover table-condensed">
+                        <tbody>
+                            <tr ng-repeat="row in $data">
+                                <td data-title="'Sr.No.'">{{$index + 1}}</td>
+                                <td data-title="'Name'" filter="{ Name: 'text'}" sortable="'Description'">{{row.Name}}</td>
+                                <td data-title="'Description'" filter="{ Description: 'text'}" sortable="'Description'">{{row.Description}}</td>
+                                <td data-title="'ACTION'">
+                                    <div class="btn-group btn-xs">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                        </button>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li><a href="#"  ng-click="GSTDisable(row.TaxId)">Disable</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="box-footer">
+
+            </div>
+        </div>
+
+        <div class="box box-primary">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>GST Type</label>
+                           <select class="form-control" ng-model="gst.TaxTypeId">
+                               <option ng-repeat="row in GSTTypes" value="{{row.TaxTypeId}}">{{row.Description}}</option>
+                           </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" ng-model="gst.Name" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Percentage</label>
+                            <input type="text" class="form-control" ng-model="gst.Percentage" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a class="btn btn-success btn-sm" ng-click="GSTSave()">SUBMIT</a>
+                        <a class="btn btn-default btn-sm" ng-click="GSTInit()">CANCEL</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

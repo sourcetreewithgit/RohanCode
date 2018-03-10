@@ -1,0 +1,6 @@
+E:\WorkingSprint\Gst_Impl.Infrastructure\bin\Debug\netstandard1.4\Gst_Impl.Infrastructure.deps.json
+E:\WorkingSprint\Gst_Impl.Infrastructure\bin\Debug\netstandard1.4\Gst_Impl.Infrastructure.dll
+E:\WorkingSprint\Gst_Impl.Infrastructure\bin\Debug\netstandard1.4\Gst_Impl.Infrastructure.pdb
+E:\WorkingSprint\Gst_Impl.Infrastructure\obj\Debug\netstandard1.4\Gst_Impl.Infrastructure.AssemblyInfo.cs
+E:\WorkingSprint\Gst_Impl.Infrastructure\obj\Debug\netstandard1.4\Gst_Impl.Infrastructure.dll
+E:\WorkingSprint\Gst_Impl.Infrastructure\obj\Debug\netstandard1.4\Gst_Impl.Infrastructure.pdb

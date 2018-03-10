@@ -1,0 +1,204 @@
+﻿
+@{
+    ViewBag.Title = "DisplayPO";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ <div ng-controller="DisplayTemplatesCtrl" class="content-wrapper" cg-busy="{promise:myPromise,message:'Loading Your Data'}"  ng-init="DisplayPO()">
+    <div class="content-header">
+        <h4>Purchase order details</h4>
+    </div>
+    <div class="content">
+        <div class="box box-success">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Client name:</label>
+                            <span>{{PO.CompanyName}}</span><br />
+                            <label>Delivery address:</label>
+                            <span>{{PO.DeliveryAddress}}</span>
+                        </div>
+                    </div> 
+                    
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>PO NO:</label>
+                            <span>{{PO.PONO}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>PO Date:</label>
+                            <span>{{PO.PODate|date:'dd-MMM-yyyy'}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Expected delivery date:</label>
+                            <span>{{PO.ExpDeliveryDate|date:'dd-MMM-yyyy'}}</span>
+                        </div>
+                    </div> 
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>GSTN:</label>
+                            <span>{{PO.GSTN}}</span>
+                        </div>
+                    </div>
+                </div> 
+                <hr /> 
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Buyer:</label>
+                            <span>{{PO.Buyer}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Buy-from-BP:</label>
+                            <span>{{PO.BuyFromBP}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Buy-from-order:</label>
+                            <span>{{PO.BuyFromOrder}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Reference A:</label>
+                            <span>{{PO.RefA}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Reference B:</label>
+                            <span>{{PO.RefB}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Ammendment no:</label>
+                            <span>{{PO.AmendNo}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Ammendment date:</label>
+                            <span>{{PO.AmendDate|date:'dd-MMM-yyyy'}}</span>
+                        </div>
+                    </div> 
+                </div>
+                <hr />
+                <div class="row"> 
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Grand total:</label>
+                            <span>{{PO.GrandTotal}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Total advance (INR):</label>
+                            <span>{{PO.TotalAdvance}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Balance advance:</label>
+                            <span>{{PO.BalanceAdvance}}</span>
+                        </div>
+                    </div>
+                </div> 
+               
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Line items</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive" ng-repeat="c in PO.PurchaseOrderDetails">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <td>Sr.No.</td>
+                                                <td>Project</td>
+                                                <td>WBS</td>
+                                                <td>Item code</td>
+                                                <td>Qty</td>
+                                                <td>UOM</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{$index+1}}</td>
+                                                <td>
+                                                    <span>{{c.ProjectCode}}</span>
+                                                <td>
+                                                    <span>{{c.WBS}}</span>
+                                                <td>
+                                                    <span>{{c.ItemCode}}</span>
+                                                <td><span>{{c.Quantity}}</span>
+                                                <td>
+                                                    <span>{{c.Uom}}</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td></td>
+                                                <td>Basic rate</td>
+                                                <td>Basic amount(A)</td>
+                                                <td>CGST/IGST(B)</td>
+                                                <td>SGST/UGST(C)</td>
+                                                <td>Other tax(D)</td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <span>{{c.BasicRate}}</span>
+
+                                                </td>
+
+                                                <td>
+                                                    <span>{{c.BasicAmt}}</span>
+                                                </td>
+                                                <td>
+                                                    <span>{{c.IGSTorCGST}}</span>
+                                                </td>
+                                                <td>
+                                                    <span>{{c.SGSTorUGST}}</span>
+                                                </td>
+                                                <td>
+                                                    <span>{{c.OtherTax}}</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>Line item total(A+B+C+D):</td>
+                                                <td>{{c.Total}}</td>
+                                                <td>IGST/CGST :{{c.IGSTorCGST_Amt}}</td>
+                                                <td>SGST/UGST :{{c.SGSTorUGST_Amt}}</td>
+                                                <td>Other tax :{{c.OtherTax_Amt}}</td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                            @*<div class="panel-footer">Panel footer</div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a class="btn btn-default btn-sm" href="/PO/Index">BACK TO LIST</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

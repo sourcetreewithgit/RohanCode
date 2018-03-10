@@ -1,0 +1,861 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GSTBookModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="CreatedDt" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedDt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="CustomerContacts">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="ContactName" Type="varchar" MaxLength="100" />
+    <Property Name="ContactNo" Type="varchar" MaxLength="50" />
+    <Property Name="EmailId" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GUID" Type="varchar(max)" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="500" />
+    <Property Name="Name" Type="varchar" MaxLength="500" />
+    <Property Name="LocAddress" Type="varchar(max)" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="StateId" Type="int" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="CompanyIdNo" Type="varchar(max)" />
+    <Property Name="GSTN" Type="varchar(max)" />
+    <Property Name="Telephone" Type="varchar" MaxLength="100" />
+    <Property Name="Pincode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Remarks" Type="varchar" MaxLength="500" />
+    <Property Name="CreatedDt" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedDt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="HsnHacCodes">
+    <Key>
+      <PropertyRef Name="HsnHacCodeId" />
+    </Key>
+    <Property Name="HsnHacCodeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedDt" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedDt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="mst_FinancialYear">
+    <Key>
+      <PropertyRef Name="FY_ID" />
+    </Key>
+    <Property Name="FY_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FinYear" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="mst_OrgInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrgName" Type="varchar(max)" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="GSTN" Type="varchar(max)" />
+    <Property Name="PAN" Type="varchar(max)" />
+    <Property Name="Email" Type="varchar(max)" />
+    <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Website" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="mst_PaymentTypes">
+    <Key>
+      <PropertyRef Name="PaymentTypeId" />
+    </Key>
+    <Property Name="PaymentTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedDt" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedDt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="mst_PurchaseOrder">
+    <Key>
+      <PropertyRef Name="PO_ID" />
+    </Key>
+    <Property Name="PO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PO_GUID" Type="nvarchar" MaxLength="500" />
+    <Property Name="PONO" Type="nvarchar" MaxLength="500" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="PODate" Type="date" />
+    <Property Name="DeliveryAddress" Type="varchar(max)" />
+    <Property Name="PurchaseOffice" Type="varchar(max)" />
+    <Property Name="ExpDeliveryDate" Type="date" />
+    <Property Name="ActualDelDate" Type="date" />
+    <Property Name="BuyFromBP" Type="varchar(max)" />
+    <Property Name="BuyFromOrder" Type="varchar(max)" />
+    <Property Name="AmendNo" Type="int" />
+    <Property Name="AmendDate" Type="date" />
+    <Property Name="AmendRemarks" Type="varchar(max)" />
+    <Property Name="RefA" Type="varchar(max)" />
+    <Property Name="RefB" Type="varchar(max)" />
+    <Property Name="GSTN" Type="varchar(max)" />
+    <Property Name="Buyer" Type="varchar(max)" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="TotalAdvance" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BalanceAdvance" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="GrandTotal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="StatusId" Type="int" />
+    <Property Name="IsAmmended" Type="bit" />
+    <Property Name="CreatedDt" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedDt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="mst_Receipts">
+    <Key>
+      <PropertyRef Name="ReceiptId" />
+    </Key>
+    <Property Name="ReceiptId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReceiptCode" Type="varchar" MaxLength="100" />
+    <Property Name="ReceiptDate" Type="datetime" />
+    <Property Name="SalesInvoiceId" Type="int" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="ReceiptAmt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BilledTo" Type="varchar(max)" />
+    <Property Name="ShippedTo" Type="varchar(max)" />
+    <Property Name="DueDate" Type="datetime" />
+    <Property Name="PaymentTypeId" Type="int" />
+    <Property Name="PaymentRefNo" Type="varchar" MaxLength="500" />
+    <Property Name="Remarks" Type="varchar(max)" />
+    <Property Name="CreatedDt" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedDt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="mst_SalesInvoice">
+    <Key>
+      <PropertyRef Name="InvoiceId" />
+    </Key>
+    <Property Name="InvoiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GUID" Type="varchar(max)" />
+    <Property Name="InvoiceCode" Type="varchar(max)" />
+    <Property Name="InvoiceDate" Type="datetime" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="PoId" Type="int" />
+    <Property Name="BilledTo" Type="varchar(max)" />
+    <Property Name="ShippedTo" Type="varchar(max)" />
+    <Property Name="Client_Gstn" Type="varchar" MaxLength="100" />
+    <Property Name="Client_PAN_No" Type="varchar" MaxLength="100" />
+    <Property Name="ChallanCode" Type="varchar(max)" />
+    <Property Name="ChallanDate" Type="datetime" />
+    <Property Name="VendorCode" Type="varchar" MaxLength="100" />
+    <Property Name="E_Way_Bill_No" Type="varchar" MaxLength="100" />
+    <Property Name="PlaceOfSupply" Type="varchar" MaxLength="100" />
+    <Property Name="ReverseCharge" Type="varchar" MaxLength="50" />
+    <Property Name="InsurancePolicy" Type="varchar(max)" />
+    <Property Name="PolicyNo" Type="varchar(max)" />
+    <Property Name="PolicyStartDt" Type="datetime" />
+    <Property Name="PilicyEndDt" Type="datetime" />
+    <Property Name="Transport" Type="varchar(max)" />
+    <Property Name="LR_No" Type="varchar" MaxLength="50" />
+    <Property Name="LR_Dt" Type="datetime" />
+    <Property Name="VehicleNo" Type="varchar" MaxLength="50" />
+    <Property Name="IR_No" Type="varchar(max)" />
+    <Property Name="IR_Dt" Type="datetime" />
+    <Property Name="ReceiptId" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="GrandTotal" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedDt" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedDt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="Acc" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="mst_Statuses">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="mst_Taxes">
+    <Key>
+      <PropertyRef Name="TaxId" />
+    </Key>
+    <Property Name="TaxId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaxTypeId" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="500" />
+    <Property Name="Percentage" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedDt" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedDt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="mst_TaxTypes">
+    <Key>
+      <PropertyRef Name="TaxTypeId" />
+    </Key>
+    <Property Name="TaxTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="mst_Uom">
+    <Key>
+      <PropertyRef Name="UomId" />
+    </Key>
+    <Property Name="UomId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedDt" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedDt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductsAndServices">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MakeId" Type="int" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="HsnHacCodeId" Type="int" />
+    <Property Name="Type" Type="int" />
+    <Property Name="CreatedDt" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedDt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="PurchaseOrderDetails">
+    <Key>
+      <PropertyRef Name="PoDetailId" />
+    </Key>
+    <Property Name="PoDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PO_ID" Type="int" />
+    <Property Name="ProjectCode" Type="varchar(max)" />
+    <Property Name="WBS" Type="varchar(max)" />
+    <Property Name="ItemCode" Type="varchar(max)" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="UomId" Type="int" />
+    <Property Name="ItemAdvance" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BasicRate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BasicAmt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TotalBasic" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="IGSTorCGST" Type="int" />
+    <Property Name="SGSTorUGST" Type="int" />
+    <Property Name="OtherTax" Type="int" />
+    <Property Name="IGSTorCGST_Amt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SGSTorUGST_Amt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="OtherTax_Amt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="IsDelivered" Type="bit" />
+    <Property Name="HsnSacCode" Type="int" />
+    <Property Name="ItemDelDate" Type="datetime" />
+    <Property Name="ItemDescription" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="ReceiptDetails">
+    <Key>
+      <PropertyRef Name="ReceiptDetailId" />
+    </Key>
+    <Property Name="ReceiptDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReceiptId" Type="int" />
+    <Property Name="SI_Detail_Id" Type="int" />
+    <Property Name="PoDetailId" Type="int" />
+    <Property Name="BasicRate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BasicAmt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="IGSTorCGST" Type="int" />
+    <Property Name="SGSTorUGST" Type="int" />
+    <Property Name="OtherTax" Type="int" />
+    <Property Name="IGSTorCGST_Amt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SGSTorUGST_Amt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="OtherTax_Amt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Advance" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ItemTotal" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="SalesInvoiceItems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceId" Type="int" />
+    <Property Name="PoDetailId" Type="int" />
+    <Property Name="BasicRate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BasicAmt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="IGSTorCGST" Type="int" />
+    <Property Name="SGSTorUGST" Type="int" />
+    <Property Name="OtherTax" Type="int" />
+    <Property Name="IGSTorCGST_Amt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SGSTorUGST_Amt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="OtherTax_Amt" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ItemAdvance" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ItemTotal" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="MakeId" />
+    </Key>
+    <Property Name="MakeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="CreatedDt" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedDt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="VendorContacts">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VendorId" Type="int" />
+    <Property Name="ContactName" Type="varchar" MaxLength="100" />
+    <Property Name="ContactNo" Type="varchar" MaxLength="50" />
+    <Property Name="EmailId" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Vendors">
+    <Key>
+      <PropertyRef Name="VendorId" />
+    </Key>
+    <Property Name="VendorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="500" />
+    <Property Name="Name" Type="varchar" MaxLength="500" />
+    <Property Name="LocAddress" Type="varchar(max)" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="StateId" Type="int" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="Pincode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Remarks" Type="varchar" MaxLength="500" />
+    <Property Name="CreatedDt" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedDt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <Association Name="FK_CustomerContacts_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="CustomerContacts" Type="Self.CustomerContacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="CustomerContacts">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mst_PurchaseOrder_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="mst_PurchaseOrder" Type="Self.mst_PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="mst_PurchaseOrder">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mst_PurchaseOrder_mst_PurchaseOrder">
+    <End Role="mst_PurchaseOrder" Type="Self.mst_PurchaseOrder" Multiplicity="0..1" />
+    <End Role="mst_PurchaseOrder1" Type="Self.mst_PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mst_PurchaseOrder">
+        <PropertyRef Name="PO_ID" />
+      </Principal>
+      <Dependent Role="mst_PurchaseOrder1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mst_PurchaseOrder_mst_Statuses">
+    <End Role="mst_Statuses" Type="Self.mst_Statuses" Multiplicity="0..1" />
+    <End Role="mst_PurchaseOrder" Type="Self.mst_PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mst_Statuses">
+        <PropertyRef Name="StatusId" />
+      </Principal>
+      <Dependent Role="mst_PurchaseOrder">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mst_Receipts_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="mst_Receipts" Type="Self.mst_Receipts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="mst_Receipts">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mst_Receipts_mst_PaymentTypes">
+    <End Role="mst_PaymentTypes" Type="Self.mst_PaymentTypes" Multiplicity="0..1" />
+    <End Role="mst_Receipts" Type="Self.mst_Receipts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mst_PaymentTypes">
+        <PropertyRef Name="PaymentTypeId" />
+      </Principal>
+      <Dependent Role="mst_Receipts">
+        <PropertyRef Name="PaymentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mst_Receipts_SalesInvoiceItems">
+    <End Role="mst_SalesInvoice" Type="Self.mst_SalesInvoice" Multiplicity="0..1" />
+    <End Role="mst_Receipts" Type="Self.mst_Receipts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mst_SalesInvoice">
+        <PropertyRef Name="InvoiceId" />
+      </Principal>
+      <Dependent Role="mst_Receipts">
+        <PropertyRef Name="SalesInvoiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mst_SalesInvoice_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="mst_SalesInvoice" Type="Self.mst_SalesInvoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="mst_SalesInvoice">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mst_SalesInvoice_mst_PurchaseOrder">
+    <End Role="mst_PurchaseOrder" Type="Self.mst_PurchaseOrder" Multiplicity="0..1" />
+    <End Role="mst_SalesInvoice" Type="Self.mst_SalesInvoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mst_PurchaseOrder">
+        <PropertyRef Name="PO_ID" />
+      </Principal>
+      <Dependent Role="mst_SalesInvoice">
+        <PropertyRef Name="PoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mst_Taxes_mst_TaxTypes">
+    <End Role="mst_TaxTypes" Type="Self.mst_TaxTypes" Multiplicity="0..1" />
+    <End Role="mst_Taxes" Type="Self.mst_Taxes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mst_TaxTypes">
+        <PropertyRef Name="TaxTypeId" />
+      </Principal>
+      <Dependent Role="mst_Taxes">
+        <PropertyRef Name="TaxTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductsAndServices_HsnHacCodes">
+    <End Role="HsnHacCodes" Type="Self.HsnHacCodes" Multiplicity="0..1" />
+    <End Role="ProductsAndServices" Type="Self.ProductsAndServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HsnHacCodes">
+        <PropertyRef Name="HsnHacCodeId" />
+      </Principal>
+      <Dependent Role="ProductsAndServices">
+        <PropertyRef Name="HsnHacCodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductsAndServices_SubCategory">
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="0..1" />
+    <End Role="ProductsAndServices" Type="Self.ProductsAndServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCategory">
+        <PropertyRef Name="MakeId" />
+      </Principal>
+      <Dependent Role="ProductsAndServices">
+        <PropertyRef Name="MakeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrderDetails_HsnHacCodes">
+    <End Role="HsnHacCodes" Type="Self.HsnHacCodes" Multiplicity="0..1" />
+    <End Role="PurchaseOrderDetails" Type="Self.PurchaseOrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HsnHacCodes">
+        <PropertyRef Name="HsnHacCodeId" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetails">
+        <PropertyRef Name="HsnSacCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrderDetails_mst_PurchaseOrder">
+    <End Role="mst_PurchaseOrder" Type="Self.mst_PurchaseOrder" Multiplicity="0..1" />
+    <End Role="PurchaseOrderDetails" Type="Self.PurchaseOrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mst_PurchaseOrder">
+        <PropertyRef Name="PO_ID" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetails">
+        <PropertyRef Name="PO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrderDetails_mst_Taxes">
+    <End Role="mst_Taxes" Type="Self.mst_Taxes" Multiplicity="0..1" />
+    <End Role="PurchaseOrderDetails" Type="Self.PurchaseOrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mst_Taxes">
+        <PropertyRef Name="TaxId" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetails">
+        <PropertyRef Name="IGSTorCGST" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrderDetails_mst_Taxes1">
+    <End Role="mst_Taxes" Type="Self.mst_Taxes" Multiplicity="0..1" />
+    <End Role="PurchaseOrderDetails" Type="Self.PurchaseOrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mst_Taxes">
+        <PropertyRef Name="TaxId" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetails">
+        <PropertyRef Name="SGSTorUGST" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseOrderDetails_mst_Taxes2">
+    <End Role="mst_Taxes" Type="Self.mst_Taxes" Multiplicity="0..1" />
+    <End Role="PurchaseOrderDetails" Type="Self.PurchaseOrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mst_Taxes">
+        <PropertyRef Name="TaxId" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetails">
+        <PropertyRef Name="OtherTax" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReceiptDetails_SalesInvoiceItems">
+    <End Role="SalesInvoiceItems" Type="Self.SalesInvoiceItems" Multiplicity="0..1" />
+    <End Role="ReceiptDetails" Type="Self.ReceiptDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SalesInvoiceItems">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReceiptDetails">
+        <PropertyRef Name="SI_Detail_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesInvoiceItems_mst_SalesInvoice">
+    <End Role="mst_SalesInvoice" Type="Self.mst_SalesInvoice" Multiplicity="0..1" />
+    <End Role="SalesInvoiceItems" Type="Self.SalesInvoiceItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mst_SalesInvoice">
+        <PropertyRef Name="InvoiceId" />
+      </Principal>
+      <Dependent Role="SalesInvoiceItems">
+        <PropertyRef Name="InvoiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesInvoiceItems_PurchaseOrderDetails">
+    <End Role="PurchaseOrderDetails" Type="Self.PurchaseOrderDetails" Multiplicity="0..1" />
+    <End Role="SalesInvoiceItems" Type="Self.SalesInvoiceItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrderDetails">
+        <PropertyRef Name="PoDetailId" />
+      </Principal>
+      <Dependent Role="SalesInvoiceItems">
+        <PropertyRef Name="PoDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCategory_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="SubCategory">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VendorContacts_Vendors">
+    <End Role="Vendors" Type="Self.Vendors" Multiplicity="0..1" />
+    <End Role="VendorContacts" Type="Self.VendorContacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendors">
+        <PropertyRef Name="VendorId" />
+      </Principal>
+      <Dependent Role="VendorContacts">
+        <PropertyRef Name="VendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetPOByGuid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Guid" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="GetPoList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetTaxList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetUoms" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="GSTBookModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerContacts" EntityType="Self.CustomerContacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HsnHacCodes" EntityType="Self.HsnHacCodes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mst_FinancialYear" EntityType="Self.mst_FinancialYear" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mst_OrgInfo" EntityType="Self.mst_OrgInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mst_PaymentTypes" EntityType="Self.mst_PaymentTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mst_PurchaseOrder" EntityType="Self.mst_PurchaseOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mst_Receipts" EntityType="Self.mst_Receipts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mst_SalesInvoice" EntityType="Self.mst_SalesInvoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mst_Statuses" EntityType="Self.mst_Statuses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mst_Taxes" EntityType="Self.mst_Taxes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mst_TaxTypes" EntityType="Self.mst_TaxTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mst_Uom" EntityType="Self.mst_Uom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductsAndServices" EntityType="Self.ProductsAndServices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseOrderDetails" EntityType="Self.PurchaseOrderDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReceiptDetails" EntityType="Self.ReceiptDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesInvoiceItems" EntityType="Self.SalesInvoiceItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VendorContacts" EntityType="Self.VendorContacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vendors" EntityType="Self.Vendors" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CustomerContacts_Customers" Association="Self.FK_CustomerContacts_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="CustomerContacts" EntitySet="CustomerContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mst_PurchaseOrder_Customers" Association="Self.FK_mst_PurchaseOrder_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="mst_PurchaseOrder" EntitySet="mst_PurchaseOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mst_PurchaseOrder_mst_PurchaseOrder" Association="Self.FK_mst_PurchaseOrder_mst_PurchaseOrder">
+      <End Role="mst_PurchaseOrder" EntitySet="mst_PurchaseOrder" />
+      <End Role="mst_PurchaseOrder1" EntitySet="mst_PurchaseOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mst_PurchaseOrder_mst_Statuses" Association="Self.FK_mst_PurchaseOrder_mst_Statuses">
+      <End Role="mst_Statuses" EntitySet="mst_Statuses" />
+      <End Role="mst_PurchaseOrder" EntitySet="mst_PurchaseOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mst_Receipts_Customers" Association="Self.FK_mst_Receipts_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="mst_Receipts" EntitySet="mst_Receipts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mst_Receipts_mst_PaymentTypes" Association="Self.FK_mst_Receipts_mst_PaymentTypes">
+      <End Role="mst_PaymentTypes" EntitySet="mst_PaymentTypes" />
+      <End Role="mst_Receipts" EntitySet="mst_Receipts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mst_Receipts_SalesInvoiceItems" Association="Self.FK_mst_Receipts_SalesInvoiceItems">
+      <End Role="mst_SalesInvoice" EntitySet="mst_SalesInvoice" />
+      <End Role="mst_Receipts" EntitySet="mst_Receipts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mst_SalesInvoice_Customers" Association="Self.FK_mst_SalesInvoice_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="mst_SalesInvoice" EntitySet="mst_SalesInvoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mst_SalesInvoice_mst_PurchaseOrder" Association="Self.FK_mst_SalesInvoice_mst_PurchaseOrder">
+      <End Role="mst_PurchaseOrder" EntitySet="mst_PurchaseOrder" />
+      <End Role="mst_SalesInvoice" EntitySet="mst_SalesInvoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mst_Taxes_mst_TaxTypes" Association="Self.FK_mst_Taxes_mst_TaxTypes">
+      <End Role="mst_TaxTypes" EntitySet="mst_TaxTypes" />
+      <End Role="mst_Taxes" EntitySet="mst_Taxes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductsAndServices_HsnHacCodes" Association="Self.FK_ProductsAndServices_HsnHacCodes">
+      <End Role="HsnHacCodes" EntitySet="HsnHacCodes" />
+      <End Role="ProductsAndServices" EntitySet="ProductsAndServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductsAndServices_SubCategory" Association="Self.FK_ProductsAndServices_SubCategory">
+      <End Role="SubCategory" EntitySet="SubCategory" />
+      <End Role="ProductsAndServices" EntitySet="ProductsAndServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrderDetails_HsnHacCodes" Association="Self.FK_PurchaseOrderDetails_HsnHacCodes">
+      <End Role="HsnHacCodes" EntitySet="HsnHacCodes" />
+      <End Role="PurchaseOrderDetails" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrderDetails_mst_PurchaseOrder" Association="Self.FK_PurchaseOrderDetails_mst_PurchaseOrder">
+      <End Role="mst_PurchaseOrder" EntitySet="mst_PurchaseOrder" />
+      <End Role="PurchaseOrderDetails" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrderDetails_mst_Taxes" Association="Self.FK_PurchaseOrderDetails_mst_Taxes">
+      <End Role="mst_Taxes" EntitySet="mst_Taxes" />
+      <End Role="PurchaseOrderDetails" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrderDetails_mst_Taxes1" Association="Self.FK_PurchaseOrderDetails_mst_Taxes1">
+      <End Role="mst_Taxes" EntitySet="mst_Taxes" />
+      <End Role="PurchaseOrderDetails" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseOrderDetails_mst_Taxes2" Association="Self.FK_PurchaseOrderDetails_mst_Taxes2">
+      <End Role="mst_Taxes" EntitySet="mst_Taxes" />
+      <End Role="PurchaseOrderDetails" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReceiptDetails_SalesInvoiceItems" Association="Self.FK_ReceiptDetails_SalesInvoiceItems">
+      <End Role="SalesInvoiceItems" EntitySet="SalesInvoiceItems" />
+      <End Role="ReceiptDetails" EntitySet="ReceiptDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesInvoiceItems_mst_SalesInvoice" Association="Self.FK_SalesInvoiceItems_mst_SalesInvoice">
+      <End Role="mst_SalesInvoice" EntitySet="mst_SalesInvoice" />
+      <End Role="SalesInvoiceItems" EntitySet="SalesInvoiceItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesInvoiceItems_PurchaseOrderDetails" Association="Self.FK_SalesInvoiceItems_PurchaseOrderDetails">
+      <End Role="PurchaseOrderDetails" EntitySet="PurchaseOrderDetails" />
+      <End Role="SalesInvoiceItems" EntitySet="SalesInvoiceItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategory_Category" Association="Self.FK_SubCategory_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="SubCategory" EntitySet="SubCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VendorContacts_Vendors" Association="Self.FK_VendorContacts_Vendors">
+      <End Role="Vendors" EntitySet="Vendors" />
+      <End Role="VendorContacts" EntitySet="VendorContacts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

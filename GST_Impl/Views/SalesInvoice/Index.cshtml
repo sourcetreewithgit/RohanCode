@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper" ng-controller="SIController" ng-init="GetSIList()" cg-busy="{promise:myPromise,message:'Loading Your Data'}">
+    <div class="content-header">
+        <h4>List of sales invoices <a class="btn btn-info btn-sm pull-right" href="/SalesInvoice/Create"><i class="fa fa-plus" aria-hidden="true"></i> New sales invoice</a></h4>
+    </div>
+    <div class="content">
+        <div class="box box-success">
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table ng-table="SIListTable" class="table table-bordered table-hover table-condensed">
+                        <tbody>
+                            <tr ng-repeat="row in $data">
+                                <td data-title="'INVOICE CODE'" filter="{ InvoiceCode: 'text'}" sortable="'InvoiceCode'">{{row.InvoiceCode}}</td>
+                                <td data-title="'CUSTOMER NAME'" filter="{ CompanyName: 'text'}" sortable="'CompanyName'">{{row.CompanyName}}</td>
+                                <td data-title="'DATE'" filter="{ InvoiceDate: 'text'}" sortable="'InvoiceDate'">{{row.InvoiceDate|date:'dd-MMM-yyyy'}}</td>
+                                <td data-title="'PO NO'" filter="{ PONO: 'text'}" data-sortable="'PONO'">{{row.PONO}}</td>
+                                <td data-title="'GRAND TOTAL'" filter="{ GrandTotal: 'number'}" data-sortable="'GrandTotal'">{{row.GrandTotal}}</td>
+                                <td data-title="'ACTION'">
+                                    <div class="btn-group btn-xs">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                        </button>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li ng-if="row.ReceiptId==null"><a href="/SalesInvoice/Create?Id={{row.GUID}}">EDIT</a></li>
+                                            <li><a href="/DisplayTemplates/DisplaySI?Id={{row.GUID}}">View</a></li>                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="box-footer">
+
+            </div>
+        </div>
+    </div>
+</div>

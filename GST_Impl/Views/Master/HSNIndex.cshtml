@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "HSNIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper" ng-controller="MasterController" ng-init="HSNInit();" cg-busy="{promise:myPromise,message:'Loading Your Data'}">
+    <div class="content-header">
+        <h4>HSN HAC Code<a class="btn btn-info btn-sm pull-right" ng-click="HSNInit();"><i class="fa fa-plus" aria-hidden="true"></i> New HSN HAC Code</a></h4>
+    </div>
+    <div class="content">
+        <div class="box box-success">
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table ng-table="HSNListTable" class="table table-bordered table-hover table-condensed">
+                        <tbody>
+                            <tr ng-repeat="row in $data">
+                                <td data-title="'Sr.No.'">{{$index + 1}}</td>
+                                <td data-title="'Code'" filter="{ Code: 'text'}" sortable="'Description'">{{row.Code}}</td>
+                                <td data-title="'ACTION'">
+                                    <div class="btn-group btn-xs">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                        </button>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li><a href="#" ng-click="GetHSNById(row.HsnHacCodeId)">EDIT</a></li>
+                                            <li><a href="#" ng-click="HSNDelete(row.HsnHacCodeId)">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="box-footer">
+
+            </div>
+        </div>
+
+        <div class="box box-primary">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Code</label>
+                            <input type="text" class="form-control" ng-model="hsn.Code" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a class="btn btn-success btn-sm" ng-click="HSNSave()">SUBMIT</a>
+                        <a class="btn btn-default btn-sm" ng-click="HSNInit()">CANCEL</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

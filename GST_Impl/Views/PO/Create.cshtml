@@ -1,0 +1,236 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+} 
+<div class="content-wrapper" ng-controller="POController" ng-init="Init()" cg-busy="{promise:myPromise,message:'Loading Your Data'}">
+    <div class="content-header">
+        <h4>Purchase order details</h4>
+    </div>
+    <div class="content">
+        <div class="box box-success"> 
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Select client:<span class="text-danger">*</span></label>
+                            <select class="form-control" ng-model="PO.CustomerId" @*ng-change="GetCustomers()"*@>
+                                <option ng-repeat="c in Customers" value="{{c.CustomerId}}">{{c.CompanyName}}</option>
+                            </select>  
+                        </div>                        
+                    </div> 
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>PO NO:<span class="text-danger">*</span></label>
+                            <input type="text" ng-model="PO.PONO" class="form-control" />
+                        </div>                       
+                    </div> 
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>GSTN:<span class="text-danger">*</span></label>
+                            <input type="text" ng-model="PO.GSTN" class="form-control" />
+                        </div>
+                    </div>                    
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Delivery address:<span class="text-danger">*</span></label>
+                            <textarea ng-model="PO.DeliveryAddress" class="form-control"></textarea> 
+                        </div>                       
+                    </div>
+                </div> 
+                <div class="row"> 
+                     <div class="col-sm-3">
+                         <div class="form-group">
+                             <label>PO Date:</label>      
+                             <datepicker date-format="dd/MMM/yyyy" date-disabled-weekdays="[0,6]">
+                                 <input ng-model="PO.PODate" type="text"  class="form-control" readonly/>
+                             </datepicker>                            
+                         </div>                         
+                     </div> 
+                     <div class="col-sm-3">
+                         <div class="form-group">
+                             <label>Expected delivery date:</label>
+                             <datepicker date-format="dd/MMM/yyyy" date-disabled-weekdays="[0,6]">
+                                 <input ng-model="PO.ExpDeliveryDate" type="text" class="form-control" readonly />
+                             </datepicker>     
+                         </div>                        
+                     </div> 
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Buyer:</label>
+                            <input type="text" ng-model="PO.Buyer" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Buy-from-BP:</label>
+                            <input type="text" ng-model="PO.BuyFromBP" class="form-control" />
+                        </div> 
+                    </div>
+                 </div>
+                <div class="row">  
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Buy-from-order:</label>
+                            <input type="text" ng-model="PO.BuyFromOrder" class="form-control" />
+                        </div> 
+                    </div> 
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Reference A:</label>
+                            <input type="text" ng-model="PO.RefA" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Reference B:</label>
+                            <input type="text" ng-model="PO.RefB" class="form-control" />
+                        </div>
+                    </div>  
+                </div> 
+                <hr />
+                <div class="row">   
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Advance given(INR):</label>
+                            <input type="text" ng-model="PO.TotalAdvance" class="form-control" readonly/>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>Grand total:</label>
+                            <input type="text" ng-model="PO.GrandTotal" class="form-control" readonly />
+                        </div> 
+                    </div>
+                </div>   
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">PO line items</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-container" > 
+                                    <table class="table table-bordered table-hover" ng-repeat="row in PO.PurchaseOrderDetails">
+                                        <thead>
+                                            <tr>
+                                                <td>Sr.No.</td>
+                                                <td>Project</td>
+                                                <td>WBS</td>
+                                                <td>Item code</td>
+                                                <td>Basic rate</td>
+                                                <td>Qty</td>
+                                                <td>Basic amount(A)</td>
+                                                <td>UOM</td>                                                                                        
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{$index+1}}</td>
+                                                <td><input type="text" class="form-control input-sm TextUpper" ng-model="row.ProjectCode" /></td>
+                                                <td><input type="text" class="form-control input-sm TextUpper" ng-model="row.WBS" /></td>
+                                                <td><input type="text" class="form-control input-sm TextUpper" ng-model="row.ItemCode" /></td>
+                                                <td><input type="number" class="form-control input-sm NumberAlign" ng-model="row.BasicRate" ng-blur="calTotal()" /></td>
+                                                <td><input type="number" class="form-control input-sm NumberAlign" ng-model="row.Quantity" ng-blur="calTotal()"/></td>
+                                                <td><input type="number" class="form-control input-sm NumberAlign" ng-model="row.BasicAmt" readonly /></td>
+                                                <td>
+                                                    <select class="form-control input-sm" ng-model="row.UomId" ng-init="row.UomId==null?row.UomId='1':row.UomId=row.UomId">
+                                                        <option ng-repeat="u in Uoms" value="{{u.UomId}}">{{u.Description}}</option>
+                                                    </select>
+                                                </td>                                               
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td></td>                                               
+                                               <td colspan="2">Product Description</td> 
+                                                <td>IGST/CGST(B)</td>
+                                                <td>SGST/UGST(C)</td>
+                                                <td>Other tax(D)</td>
+                                                <td>Del. Date</td>
+                                                <td>HSN</td> 
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td colspan="2"><input type="text" class="form-control input-sm TextUpper" ng-model="row.ItemDescription"/></td>
+                                               
+                                                <td>
+                                                    <select class="form-control input-sm" ng-model="row.IGSTorCGST" ng-change="calTotal()">
+                                                        <option ng-repeat="T in TaxList|filter:{TaxTypeId:1}" value="{{T.TaxId}}">{{T.Name}}</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control input-sm" ng-model="row.SGSTorUGST" ng-change="calTotal()">
+                                                        <option ng-repeat="T in TaxList|filter:{TaxTypeId:2}" value="{{T.TaxId}}">{{T.Name}}</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control input-sm" ng-model="row.OtherTax" ng-change="calTotal()">
+                                                        <option ng-repeat="T in TaxList|filter:{TaxTypeId:3}" value="{{T.TaxId}}">{{T.Name}}</option>
+                                                    </select>
+                                                </td> 
+                                                <td>
+                                                    <datepicker date-format="dd/MMM/yyyy" date-disabled-weekdays="[0,6]">
+                                                        <input ng-model="row.ItemDelDate" type="text" class="form-control" readonly />
+                                                    </datepicker>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control input-sm" ng-model="row.HsnSacCode">
+                                                        <option ng-repeat="u in HsnCodes" value="{{u.HsnHacCodeId}}">{{u.Code}}</option>
+                                                    </select>
+                                                </td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <button class="btn btn-danger btn-xs" ng-click="DeleteRow()">Delete</button>
+                                                </td>
+                                                <td colspan="2"><span class="pull-right">Line item total(A+B+C+D): {{row.Total}}</span></td>  
+                                                <td>IGST/CGST :{{row.IGSTorCGST_Amt}}</td>
+                                                <td>SGST/UGST :{{row.SGSTorUGST_Amt}}</td>
+                                                <td>Other tax :{{row.OtherTax_Amt}}</td>
+                                                <td colspan="2">Advance<input type="number" style="max-width:200px;"  class="form-control input-sm NumberAlign pull-right" placeholder="Advance" ng-model="row.ItemAdvance" ng-change="calTotal()" /></td>
+                                              
+                                            </tr>
+                                        </tfoot>                                        
+                                    </table>                                    
+                                </div>                
+                            
+
+                            </div>
+                            @*<div class="panel-footer">Panel footer</div>*@
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button class="btn btn-success btn-xs" ng-click="NewRow()">ADD NEW ITEM</button>
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer"> 
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a class="btn btn-warning btn-sm" ng-click="Save('SD')">SAVE AS DRAFT</a>
+                        <a class="btn btn-success btn-sm" ng-click="Save('S')">SUBMIT</a>
+                        <a class="btn btn-default btn-sm" href="/PO/Index">CANCEL</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <datepicker date-format="dd/MMM/yyyy" date-disabled-weekdays="[0,6]">
+                    <input ng-model="row.ItemDelDate" type="text" class="form-control" data-toggle="modal" data-target=".bs-example-modal-sm" />
+                </datepicker> 
+            </div>
+        </div>
+    </div>*@
+</div>
