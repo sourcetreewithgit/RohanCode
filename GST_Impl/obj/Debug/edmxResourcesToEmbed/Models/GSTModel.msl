@@ -1,0 +1,520 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GSTBookModelStoreContainer" CdmEntityContainer="GSTBookEntities">
+    <FunctionImportMapping FunctionImportName="GetPOByGuid" FunctionName="GSTBookModel.Store.GetPOByGuid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GSTBookModel.GetPOByGuid_Result">
+          <ScalarProperty Name="PO_ID" ColumnName="PO_ID" />
+          <ScalarProperty Name="PO_GUID" ColumnName="PO_GUID" />
+          <ScalarProperty Name="PONO" ColumnName="PONO" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="PODate" ColumnName="PODate" />
+          <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+          <ScalarProperty Name="PurchaseOffice" ColumnName="PurchaseOffice" />
+          <ScalarProperty Name="ExpDeliveryDate" ColumnName="ExpDeliveryDate" />
+          <ScalarProperty Name="ActualDelDate" ColumnName="ActualDelDate" />
+          <ScalarProperty Name="BuyFromBP" ColumnName="BuyFromBP" />
+          <ScalarProperty Name="BuyFromOrder" ColumnName="BuyFromOrder" />
+          <ScalarProperty Name="AmendNo" ColumnName="AmendNo" />
+          <ScalarProperty Name="AmendDate" ColumnName="AmendDate" />
+          <ScalarProperty Name="AmendRemarks" ColumnName="AmendRemarks" />
+          <ScalarProperty Name="RefA" ColumnName="RefA" />
+          <ScalarProperty Name="RefB" ColumnName="RefB" />
+          <ScalarProperty Name="GSTN" ColumnName="GSTN" />
+          <ScalarProperty Name="Buyer" ColumnName="Buyer" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="TotalAdvance" ColumnName="TotalAdvance" />
+          <ScalarProperty Name="BalanceAdvance" ColumnName="BalanceAdvance" />
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="IsAmmended" ColumnName="IsAmmended" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="PoDetailId" ColumnName="PoDetailId" />
+          <ScalarProperty Name="PO_ID1" ColumnName="PO_ID1" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="WBS" ColumnName="WBS" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="UomId" ColumnName="UomId" />
+          <ScalarProperty Name="ItemAdvance" ColumnName="ItemAdvance" />
+          <ScalarProperty Name="BasicRate" ColumnName="BasicRate" />
+          <ScalarProperty Name="BasicAmt" ColumnName="BasicAmt" />
+          <ScalarProperty Name="TotalBasic" ColumnName="TotalBasic" />
+          <ScalarProperty Name="IGSTorCGST" ColumnName="IGSTorCGST" />
+          <ScalarProperty Name="SGSTorUGST" ColumnName="SGSTorUGST" />
+          <ScalarProperty Name="OtherTax" ColumnName="OtherTax" />
+          <ScalarProperty Name="IGSTorCGST_Amt" ColumnName="IGSTorCGST_Amt" />
+          <ScalarProperty Name="SGSTorUGST_Amt" ColumnName="SGSTorUGST_Amt" />
+          <ScalarProperty Name="OtherTax_Amt" ColumnName="OtherTax_Amt" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="IsDelivered" ColumnName="IsDelivered" />
+          <ScalarProperty Name="HsnSacCode" ColumnName="HsnSacCode" />
+          <ScalarProperty Name="ItemDelDate" ColumnName="ItemDelDate" />
+          <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPoList" FunctionName="GSTBookModel.Store.GetPoList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GSTBookModel.GetPoList_Result">
+          <ScalarProperty Name="PONO" ColumnName="PONO" />
+          <ScalarProperty Name="PO_GUID" ColumnName="PO_GUID" />
+          <ScalarProperty Name="PODate" ColumnName="PODate" />
+          <ScalarProperty Name="ExpDeliveryDate" ColumnName="ExpDeliveryDate" />
+          <ScalarProperty Name="TotalAdvance" ColumnName="TotalAdvance" />
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="StatusDesc" ColumnName="StatusDesc" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetTaxList" FunctionName="GSTBookModel.Store.GetTaxList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GSTBookModel.GetTaxList_Result">
+          <ScalarProperty Name="TaxId" ColumnName="TaxId" />
+          <ScalarProperty Name="TaxTypeId" ColumnName="TaxTypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUoms" FunctionName="GSTBookModel.Store.GetUoms">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GSTBookModel.GetUoms_Result">
+          <ScalarProperty Name="UomId" ColumnName="UomId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="GSTBookModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="GSTBookModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="GSTBookModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="GSTBookModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="GSTBookModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="GSTBookModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerContacts">
+      <EntityTypeMapping TypeName="GSTBookModel.CustomerContact">
+        <MappingFragment StoreEntitySet="CustomerContacts">
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="GSTBookModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="GSTN" ColumnName="GSTN" />
+          <ScalarProperty Name="CompanyIdNo" ColumnName="CompanyIdNo" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="LocAddress" ColumnName="LocAddress" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HsnHacCodes">
+      <EntityTypeMapping TypeName="GSTBookModel.HsnHacCode">
+        <MappingFragment StoreEntitySet="HsnHacCodes">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="HsnHacCodeId" ColumnName="HsnHacCodeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mst_FinancialYear">
+      <EntityTypeMapping TypeName="GSTBookModel.mst_FinancialYear">
+        <MappingFragment StoreEntitySet="mst_FinancialYear">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="FinYear" ColumnName="FinYear" />
+          <ScalarProperty Name="FY_ID" ColumnName="FY_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mst_OrgInfo">
+      <EntityTypeMapping TypeName="GSTBookModel.mst_OrgInfo">
+        <MappingFragment StoreEntitySet="mst_OrgInfo">
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PAN" ColumnName="PAN" />
+          <ScalarProperty Name="GSTN" ColumnName="GSTN" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mst_PaymentTypes">
+      <EntityTypeMapping TypeName="GSTBookModel.mst_PaymentTypes">
+        <MappingFragment StoreEntitySet="mst_PaymentTypes">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mst_PurchaseOrder">
+      <EntityTypeMapping TypeName="GSTBookModel.mst_PurchaseOrder">
+        <MappingFragment StoreEntitySet="mst_PurchaseOrder">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="IsAmmended" ColumnName="IsAmmended" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+          <ScalarProperty Name="BalanceAdvance" ColumnName="BalanceAdvance" />
+          <ScalarProperty Name="TotalAdvance" ColumnName="TotalAdvance" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Buyer" ColumnName="Buyer" />
+          <ScalarProperty Name="GSTN" ColumnName="GSTN" />
+          <ScalarProperty Name="RefB" ColumnName="RefB" />
+          <ScalarProperty Name="RefA" ColumnName="RefA" />
+          <ScalarProperty Name="AmendRemarks" ColumnName="AmendRemarks" />
+          <ScalarProperty Name="AmendDate" ColumnName="AmendDate" />
+          <ScalarProperty Name="AmendNo" ColumnName="AmendNo" />
+          <ScalarProperty Name="BuyFromOrder" ColumnName="BuyFromOrder" />
+          <ScalarProperty Name="BuyFromBP" ColumnName="BuyFromBP" />
+          <ScalarProperty Name="ActualDelDate" ColumnName="ActualDelDate" />
+          <ScalarProperty Name="ExpDeliveryDate" ColumnName="ExpDeliveryDate" />
+          <ScalarProperty Name="PurchaseOffice" ColumnName="PurchaseOffice" />
+          <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+          <ScalarProperty Name="PODate" ColumnName="PODate" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="PONO" ColumnName="PONO" />
+          <ScalarProperty Name="PO_GUID" ColumnName="PO_GUID" />
+          <ScalarProperty Name="PO_ID" ColumnName="PO_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mst_Receipts">
+      <EntityTypeMapping TypeName="GSTBookModel.mst_Receipts">
+        <MappingFragment StoreEntitySet="mst_Receipts">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="PaymentRefNo" ColumnName="PaymentRefNo" />
+          <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="ShippedTo" ColumnName="ShippedTo" />
+          <ScalarProperty Name="BilledTo" ColumnName="BilledTo" />
+          <ScalarProperty Name="ReceiptAmt" ColumnName="ReceiptAmt" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="SalesInvoiceId" ColumnName="SalesInvoiceId" />
+          <ScalarProperty Name="ReceiptDate" ColumnName="ReceiptDate" />
+          <ScalarProperty Name="ReceiptCode" ColumnName="ReceiptCode" />
+          <ScalarProperty Name="ReceiptId" ColumnName="ReceiptId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mst_SalesInvoice">
+      <EntityTypeMapping TypeName="GSTBookModel.mst_SalesInvoice">
+        <MappingFragment StoreEntitySet="mst_SalesInvoice">
+          <ScalarProperty Name="Acc" ColumnName="Acc" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="ReceiptId" ColumnName="ReceiptId" />
+          <ScalarProperty Name="IR_Dt" ColumnName="IR_Dt" />
+          <ScalarProperty Name="IR_No" ColumnName="IR_No" />
+          <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
+          <ScalarProperty Name="LR_Dt" ColumnName="LR_Dt" />
+          <ScalarProperty Name="LR_No" ColumnName="LR_No" />
+          <ScalarProperty Name="Transport" ColumnName="Transport" />
+          <ScalarProperty Name="PilicyEndDt" ColumnName="PilicyEndDt" />
+          <ScalarProperty Name="PolicyStartDt" ColumnName="PolicyStartDt" />
+          <ScalarProperty Name="PolicyNo" ColumnName="PolicyNo" />
+          <ScalarProperty Name="InsurancePolicy" ColumnName="InsurancePolicy" />
+          <ScalarProperty Name="ReverseCharge" ColumnName="ReverseCharge" />
+          <ScalarProperty Name="PlaceOfSupply" ColumnName="PlaceOfSupply" />
+          <ScalarProperty Name="E_Way_Bill_No" ColumnName="E_Way_Bill_No" />
+          <ScalarProperty Name="VendorCode" ColumnName="VendorCode" />
+          <ScalarProperty Name="ChallanDate" ColumnName="ChallanDate" />
+          <ScalarProperty Name="ChallanCode" ColumnName="ChallanCode" />
+          <ScalarProperty Name="Client_PAN_No" ColumnName="Client_PAN_No" />
+          <ScalarProperty Name="Client_Gstn" ColumnName="Client_Gstn" />
+          <ScalarProperty Name="ShippedTo" ColumnName="ShippedTo" />
+          <ScalarProperty Name="BilledTo" ColumnName="BilledTo" />
+          <ScalarProperty Name="PoId" ColumnName="PoId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="InvoiceCode" ColumnName="InvoiceCode" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mst_Statuses">
+      <EntityTypeMapping TypeName="GSTBookModel.mst_Statuses">
+        <MappingFragment StoreEntitySet="mst_Statuses">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mst_Taxes">
+      <EntityTypeMapping TypeName="GSTBookModel.mst_Taxes">
+        <MappingFragment StoreEntitySet="mst_Taxes">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TaxTypeId" ColumnName="TaxTypeId" />
+          <ScalarProperty Name="TaxId" ColumnName="TaxId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mst_TaxTypes">
+      <EntityTypeMapping TypeName="GSTBookModel.mst_TaxTypes">
+        <MappingFragment StoreEntitySet="mst_TaxTypes">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TaxTypeId" ColumnName="TaxTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mst_Uom">
+      <EntityTypeMapping TypeName="GSTBookModel.mst_Uom">
+        <MappingFragment StoreEntitySet="mst_Uom">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="UomId" ColumnName="UomId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductsAndServices">
+      <EntityTypeMapping TypeName="GSTBookModel.ProductsAndService">
+        <MappingFragment StoreEntitySet="ProductsAndServices">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="HsnHacCodeId" ColumnName="HsnHacCodeId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="MakeId" ColumnName="MakeId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrderDetails">
+      <EntityTypeMapping TypeName="GSTBookModel.PurchaseOrderDetail">
+        <MappingFragment StoreEntitySet="PurchaseOrderDetails">
+          <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+          <ScalarProperty Name="ItemDelDate" ColumnName="ItemDelDate" />
+          <ScalarProperty Name="HsnSacCode" ColumnName="HsnSacCode" />
+          <ScalarProperty Name="IsDelivered" ColumnName="IsDelivered" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="OtherTax_Amt" ColumnName="OtherTax_Amt" />
+          <ScalarProperty Name="SGSTorUGST_Amt" ColumnName="SGSTorUGST_Amt" />
+          <ScalarProperty Name="IGSTorCGST_Amt" ColumnName="IGSTorCGST_Amt" />
+          <ScalarProperty Name="OtherTax" ColumnName="OtherTax" />
+          <ScalarProperty Name="SGSTorUGST" ColumnName="SGSTorUGST" />
+          <ScalarProperty Name="IGSTorCGST" ColumnName="IGSTorCGST" />
+          <ScalarProperty Name="TotalBasic" ColumnName="TotalBasic" />
+          <ScalarProperty Name="BasicAmt" ColumnName="BasicAmt" />
+          <ScalarProperty Name="BasicRate" ColumnName="BasicRate" />
+          <ScalarProperty Name="ItemAdvance" ColumnName="ItemAdvance" />
+          <ScalarProperty Name="UomId" ColumnName="UomId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="WBS" ColumnName="WBS" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="PO_ID" ColumnName="PO_ID" />
+          <ScalarProperty Name="PoDetailId" ColumnName="PoDetailId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReceiptDetails">
+      <EntityTypeMapping TypeName="GSTBookModel.ReceiptDetail">
+        <MappingFragment StoreEntitySet="ReceiptDetails">
+          <ScalarProperty Name="PoDetailId" ColumnName="PoDetailId" />
+          <ScalarProperty Name="ItemTotal" ColumnName="ItemTotal" />
+          <ScalarProperty Name="Advance" ColumnName="Advance" />
+          <ScalarProperty Name="OtherTax_Amt" ColumnName="OtherTax_Amt" />
+          <ScalarProperty Name="SGSTorUGST_Amt" ColumnName="SGSTorUGST_Amt" />
+          <ScalarProperty Name="IGSTorCGST_Amt" ColumnName="IGSTorCGST_Amt" />
+          <ScalarProperty Name="OtherTax" ColumnName="OtherTax" />
+          <ScalarProperty Name="SGSTorUGST" ColumnName="SGSTorUGST" />
+          <ScalarProperty Name="IGSTorCGST" ColumnName="IGSTorCGST" />
+          <ScalarProperty Name="BasicAmt" ColumnName="BasicAmt" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="BasicRate" ColumnName="BasicRate" />
+          <ScalarProperty Name="SI_Detail_Id" ColumnName="SI_Detail_Id" />
+          <ScalarProperty Name="ReceiptId" ColumnName="ReceiptId" />
+          <ScalarProperty Name="ReceiptDetailId" ColumnName="ReceiptDetailId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubCategories">
+      <EntityTypeMapping TypeName="GSTBookModel.SubCategory">
+        <MappingFragment StoreEntitySet="SubCategory">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="MakeId" ColumnName="MakeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendorContacts">
+      <EntityTypeMapping TypeName="GSTBookModel.VendorContact">
+        <MappingFragment StoreEntitySet="VendorContacts">
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendors">
+      <EntityTypeMapping TypeName="GSTBookModel.Vendor">
+        <MappingFragment StoreEntitySet="Vendors">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDt" ColumnName="UpdatedDt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDt" ColumnName="CreatedDt" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="LocAddress" ColumnName="LocAddress" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="GSTBookModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="SalesInvoiceItems">
+      <EntityTypeMapping TypeName="GSTBookModel.SalesInvoiceItem">
+        <MappingFragment StoreEntitySet="SalesInvoiceItems">
+          <ScalarProperty Name="ItemTotal" ColumnName="ItemTotal" />
+          <ScalarProperty Name="ItemAdvance" ColumnName="ItemAdvance" />
+          <ScalarProperty Name="OtherTax_Amt" ColumnName="OtherTax_Amt" />
+          <ScalarProperty Name="SGSTorUGST_Amt" ColumnName="SGSTorUGST_Amt" />
+          <ScalarProperty Name="IGSTorCGST_Amt" ColumnName="IGSTorCGST_Amt" />
+          <ScalarProperty Name="OtherTax" ColumnName="OtherTax" />
+          <ScalarProperty Name="SGSTorUGST" ColumnName="SGSTorUGST" />
+          <ScalarProperty Name="IGSTorCGST" ColumnName="IGSTorCGST" />
+          <ScalarProperty Name="BasicAmt" ColumnName="BasicAmt" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="BasicRate" ColumnName="BasicRate" />
+          <ScalarProperty Name="PoDetailId" ColumnName="PoDetailId" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

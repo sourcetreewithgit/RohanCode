@@ -1,0 +1,303 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper" ng-controller="SIController" ng-init="Check()" cg-busy="{promise:myPromise,message:'Loading Your Data'}">
+    <div class="content-header">
+        <h4>Sales invoice details</h4>
+    </div>
+    <div class="content">
+        <div class="box box-success">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Select client<span class="text-danger">*</span></label>
+                                <select class="form-control input-sm" ng-model="SI.CustomerId" ng-change="GetCustomerPOList(SI.CustomerId)">
+                                    <option ng-repeat="c in Customers" value="{{c.CustomerId}}">{{c.CompanyName}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label>Select purchase order<span class="text-danger">*</span></label>
+                                <select class="form-control input-sm" ng-model="SI.SelectedPoId" ng-change="GetPO_InviceDetails(SI.SelectedPoId)">
+                                    <option ng-repeat="c in PoList" value="{{c.PO_GUID}}">{{c.PONO}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <hr />
+                <div class="row" ng-hide="SI.PoId==undefined" >
+                    <div class="col-sm-6"> 
+                        <div class="col-sm-6">
+                            <label>Invoice code</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" ng-model="SI.InvoiceCode" class="form-control input-sm" />
+                        </div>
+                        <div class="col-sm-6"> 
+                                <label>Date of invoice</label>  
+                        </div>
+                        <div class="col-sm-6"> 
+                                <datepicker date-format="dd/MMM/yyyy" date-disabled-weekdays="[0,6]">
+                                    <input ng-model="SI.InvoiceDate" type="text" class="form-control input-sm" readonly />
+                                </datepicker>  
+                        </div>
+
+                        <div class="col-sm-6"> 
+                                <label>PO No</label>  
+                        </div>
+                        <div class="col-sm-6">  
+                            <span class="form-control input-sm">{{SI.PONO}}</span>
+                        </div> 
+
+                        <div class="col-sm-6"> 
+                                <label>PO Date</label> 
+                        </div>
+                        <div class="col-sm-6">  
+                          <span class="form-control input-sm">{{SI.PoDate|date:'dd/MM/yyyy'}}</span>
+                        </div>
+
+                        <div class="col-sm-6">
+                                <label>Vendor code</label>
+                        </div>
+                        <div class="col-sm-6">
+                                <input type="text" ng-model="SI.VendorCode" class="form-control input-sm" />
+                        </div>
+                      
+                        <div class="col-sm-6">
+                                <label>E way bill No</label>
+                        </div>
+                        <div class="col-sm-6">
+                                <input type="text" ng-model="SI.E_Way_Bill_No" class="form-control input-sm" />
+                        </div>
+
+                        <div class="col-sm-6">
+                                <label>Place of supply</label> 
+                        </div>
+                        <div class="col-sm-6">
+                                <input type="text" ng-model="SI.PlaceOfSupply" class="form-control input-sm" />
+                        </div>
+
+                        <div class="col-sm-6">
+                                <label>Reverse charge</label> 
+                        </div>
+                        <div class="col-sm-6">
+                                <input type="text" ng-model="SI.ReverseCharge" class="form-control input-sm" />
+                        </div>
+                        <div class="col-sm-6">
+                            <label>IR No</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" ng-model="SI.IR_No" class="form-control input-sm" />
+                        </div>
+                        <div class="col-sm-6">
+                            <label>IR Date</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <datepicker date-format="dd/MMM/yyyy" date-disabled-weekdays="[0,6]">
+                                <input ng-model="SI.IR_Dt" type="text" class="form-control input-sm" readonly />
+                            </datepicker>
+                        </div>
+                    </div> 
+                    <div class="col-sm-6">
+                        <div class="col-sm-6"> 
+                                <label>Challan No.</label>
+                        </div> 
+                        <div class="col-sm-6">
+                            <input type="text" ng-model="SI.ChallanCode" class="form-control input-sm" />
+                        </div>
+                        <div class="col-sm-6"><label>Challan date</label></div>
+                        <div class="col-sm-6">
+                                <datepicker date-format="dd/MMM/yyyy" date-disabled-weekdays="[0,6]">
+                                    <input ng-model="SI.ChallanDate" type="text" class="form-control input-sm" readonly />
+                                </datepicker> 
+                        </div>
+                        <div class="col-sm-6">
+                                <label>Insurance policy</label>
+                        </div>
+                        <div class="col-sm-6">
+                                <input type="text" ng-model="SI.InsurancePolicy" class="form-control input-sm" />
+                        </div>
+                        <div class="col-sm-6">
+                                <label>Policy No</label>
+                        </div>
+                        <div class="col-sm-6">
+                                <input type="text" ng-model="SI.PolicyNo" class="form-control input-sm" />
+                        </div>
+                        <div class="col-sm-6">
+                                <label>Policy period</label>
+                        </div>
+                        <div class="col-sm-6">
+                                <datepicker date-format="dd/MMM/yyyy" date-disabled-weekdays="[0,6]">
+                                    <input ng-model="SI.PolicyStartDt" type="text" class="form-control input-sm" readonly />
+                                </datepicker> 
+                        </div>
+                        <div class="col-sm-6"> </div>
+                            <div class="col-sm-6">
+                                <datepicker date-format="dd/MMM/yyyy" date-disabled-weekdays="[0,6]">
+                                    <input ng-model="SI.PilicyEndDt" type="text" class="form-control input-sm" readonly />
+                                </datepicker>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Transport</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="SI.Transport" class="form-control input-sm" />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>LR No</label>
+                            </div>
+                       
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="SI.LR_No" class="form-control input-sm" />
+                            </div>
+                        <div class="col-sm-6">
+                            <label>LR Date</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <datepicker date-format="dd/MMM/yyyy" date-disabled-weekdays="[0,6]">
+                                <input ng-model="SI.LR_Dt" type="text" class="form-control input-sm" readonly />
+                            </datepicker>
+                        </div>
+                            <div class="col-sm-6">
+                                <label>Vehicle No</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="SI.VehicleNo" class="form-control input-sm" />
+                            </div>
+
+                           
+                        </div> 
+                </div> 
+                <div class="row"  ng-hide="SI.PoId==undefined">
+                    <div class="col-sm-6"> 
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Billed to<span class="text-danger">*</span></label>
+                                <textarea class="form-control input-sm" ng-model="SI.BilledTo" rows="2"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>PAN No</label>
+                                <input type="text" ng-model="SI.Client_PAN_No" class="form-control input-sm"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>GSTN</label>
+                                <input type="text" ng-model="SI.Client_Gstn" class="form-control input-sm"/>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-sm-6">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Shipped to<span class="text-danger">*</span></label>
+                                <textarea class="form-control input-sm" ng-model="SI.ShippedTo" rows="2"></textarea>
+                            </div>
+                        </div> 
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>A/c<span class="text-danger">*</span></label>
+                                <textarea class="form-control input-sm" ng-model="SI.Acc" rows="2"></textarea>
+                            </div>
+                        </div> 
+                    </div>  
+                </div>  
+                <div class="row" ng-hide="SI.PoId==undefined">
+                    <div class="col-sm-12">
+                        <div class="col-sm-3">
+                            <label>Grand Total</label> <input type="number" ng-model="SI.GrandTotal" class="form-control input-sm" readonly />
+                        </div>
+                        <div class="col-sm-9">
+                            <label>In words</label>
+                            <span ng-show="SI.GrandTotal>0" class="form-control input-sm text-uppercase" >INR: {{SI.Inwords}}</span>
+                            <span ng-show="SI.GrandTotal<=0" class="form-control input-sm text-uppercase">INR: Zero only</span>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row" ng-hide="SI.PoId==undefined">
+                    <div class="col-sm-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">SI line items</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-container">
+                                    <table class="table table-bordered table-hover" >
+                                        <thead class="bg-info">
+                                            <tr>
+                                                <td>#</td>
+                                                <td>Project</td>
+                                                <td>WBS</td>
+                                                <td>Item code</td>
+                                                <td>Item desc.</td>
+                                                <td>PO Qty</td>
+                                                <td>Basic rate</td>
+                                                <td>SI Qty</td>
+                                                <td>Basic amt.</td>
+                                                <td>Advance</td>
+                                                <td>IGST/ CGST</td>
+                                                <td>SGST/ UTGST</td>
+                                                <td>Other Tax</td>
+                                                <td>Select</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="row in SI.SalesInvoiceItems">
+                                                <td>{{$index+1}}</td>
+                                                <td>{{row.ProjectCode}}</td>
+                                                <td>{{row.WBS}}</td>
+                                                <td>{{row.ItemCode}}</td>
+                                                <td><span style="max-width:40px;word-wrap:break-word;">{{row.ItemDescription}}</span></td>
+                                                <td>{{row.PO_Qty}}</td>
+                                                <td>{{row.BasicRate}}</td>
+                                                <td><input ng-model="row.Quantity" type="number" class="form-control input-sm input-sm NumberAlign"  ng-blur="calTotal()" /></td>
+                                                <td>{{row.BasicAmt}}</td>
+                                                <td>{{row.Advance}}</td>
+                                                <td>{{row.IGSTorCGST_Amt}}</td>
+                                                <td>{{row.SGSTorUGST_Amt}}</td>
+                                                <td>{{row.OtherTax_Amt}}</td> 
+                                                <td><input type="checkbox" ng-model="row.Check" ng-change="calTotal()" /></td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr style="font-weight:500;">
+                                                <td colspan="9"></td>
+                                                <td>{{row.BasicAmtTot}}</td>
+                                                <td>{{row.AdvanceTot}}</td>
+                                                <td>{{row.IGSTorCGST_AmtTot}}</td>
+                                                <td>{{row.SGSTorUGST_AmtTot}}</td>
+                                                <td>{{row.OtherTax_AmtTot}}</td> 
+                                            </tr> 
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+
+                            </div>
+                            @*<div class="panel-footer">Panel footer</div>*@
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="box-footer"  ng-hide="SI.PoId==undefined">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a class="btn btn-success btn-sm" ng-click="Save()">SUBMIT</a>
+                        <a class="btn btn-default btn-sm" href="/SalesInvoice/Index">CANCEL</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
